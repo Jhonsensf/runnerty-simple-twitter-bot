@@ -28,6 +28,6 @@ Run Runnerty
 runnerty
 ```
 
-###Expected result:
+### Expected result:
 
 The chain will listen to new followers of the given Twitter accound and send them automatically a direct message.
