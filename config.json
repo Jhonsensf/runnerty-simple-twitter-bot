@@ -1,0 +1,22 @@
+{
+  "triggers": [
+    {
+      "id":"twitter_default",
+      "type":"@runnerty-trigger-twitter",
+      "consumerKey":"MyTwitterConsumerKey",
+      "consumerSecret":"MyTwitterconsumerSecret",
+      "accessToken":"MyTwitteraccessToken",
+      "accessTokenSecret":"MyTwitteraccessTokenSecret"
+    }
+  ],
+  "executors": [
+    {
+      "id":"twitter_default",
+      "type":"@runnerty-executor-twitter",
+      "consumerKey":"MyTwitterConsumerKey",
+      "consumerSecret":"MyTwitterconsumerSecret",
+      "accessToken":"MyTwitteraccessToken",
+      "accessTokenSecret":"MyTwitteraccessTokenSecret"
+    }
+  ]
+}

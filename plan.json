@@ -1,0 +1,46 @@
+{
+  "chains": [
+    {
+      "id":"STREAM-RUNNERTY-FOLLOWER",
+      "name":"It streams the twitter user account to listen for new followers",
+      "triggers":[
+        {
+          "id":"twitter_default",
+          "command":"follow"
+        }
+      ],
+      "processes":[
+        {
+          "id": "SEND_DIRECT_ES",
+          "name": "Sends a direct message to the new follower in Spanish",
+          "depends_process": {
+            "$and": [
+              {"@GV(user_lang)": {"$eq": "es"}}
+             ]
+          },
+          "exec":{
+            "id":"twitter_default",
+            "command":"direct",
+            "screen_name":"@GV(user_screen_name)",
+            "textToSend": "Hola, gracias por seguirme."
+          }
+        },
+        {
+          "id": "SEND_DIRECT_EN",
+          "name": "Sends a direct message to the new follower in English",
+          "depends_process": {
+            "$and": [
+              {"@GV(user_lang)": {"$ne": "es"}}
+             ]
+          },
+          "exec":{
+            "id":"twitter_default",
+            "command":"direct",
+            "screen_name":"@GV(user_screen_name)",
+            "textToSend": "Hello, thank you for following me."
+          }
+        }
+      ]
+    }
+  ]
+}
